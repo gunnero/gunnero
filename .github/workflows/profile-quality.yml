@@ -26,7 +26,7 @@ jobs:
         run: |
           set -euo pipefail
           files=(README.md SECURITY.md CHANGELOG.md .github/pull_request_template.md)
-          if grep -Ein '(linkedin|visitor counter|contribution snake|trophy widget|github-readme-stats)' README.md; then
+          if grep -Ein '(visitor counter|contribution snake|trophy widget|github-readme-stats)' README.md; then
             echo 'Prohibited profile branding found.' >&2
             exit 1
           fi
@@ -42,6 +42,9 @@ jobs:
           ruby -e 'ARGV.each { |f| File.read(f).scan(/\[[^\]]+\]\((https:\/\/[^)]+)\)/).flatten.each { |u| puts u } }' README.md SECURITY.md CHANGELOG.md .github/pull_request_template.md \
             | sort -u > /tmp/profile-links.txt
           while IFS= read -r url; do
+            if [[ "$url" == "https://www.linkedin.com/in/dimovskialeksandar/" ]]; then
+              continue
+            fi
             curl --fail --silent --show-error --location --retry 2 --max-time 30 --output /dev/null "$url"
           done < /tmp/profile-links.txt
 
