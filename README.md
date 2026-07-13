@@ -44,5 +44,6 @@ I build and modernize business software across PHP, Laravel, Python, FastAPI, Re
 ## Contact
 
 - Portfolio: [aleksandardimovski.me](https://aleksandardimovski.me)
+- LinkedIn: [linkedin.com/in/dimovskialeksandar](https://www.linkedin.com/in/dimovskialeksandar/)
 - Email: [aleksandar.dimovski@me.com](mailto:aleksandar.dimovski@me.com)
 - Location: Bitola, North Macedonia
